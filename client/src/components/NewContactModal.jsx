@@ -1,13 +1,13 @@
 import React, { useRef } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
-import { useContact } from "../context/ContactsProvider";
+import { useContacts } from "../contexts/ContactsProvider";
 
 // main function
 export default function NewContactModal({ closeModal }) {
   //hooks
   const idRef = useRef();
   const nameRef = useRef();
-  const { createContact } = useContact();
+  const { createContact } = useContacts();
 
   //functions
   const handleSubmit = (e) => {

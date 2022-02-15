@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Form, Modal, Button } from "react-bootstrap";
-import { useContact } from "../context/ContactsProvider";
-import { useConversation } from "../context/ConversationsProvider";
+import { useContacts } from "../contexts/ContactsProvider";
+import { useConversations } from "../contexts/ConversationsProvider";
 
 export default function NewConversationModal({ closeModal }) {
   //hooks
   const [selectedContactsIds, setSelectedContactsIds] = useState([]);
-  const { contacts } = useContact();
-  const { createConversation } = useConversation();
+  const { contacts } = useContacts();
+  const { createConversation } = useConversations();
 
   //functions
   const handleCheckboxChange = (contactId) => {

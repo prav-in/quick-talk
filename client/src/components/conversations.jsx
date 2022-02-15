@@ -1,9 +1,9 @@
 import React from "react";
 import { ListGroup } from "react-bootstrap";
-import { useConversation } from "../context/ConversationsProvider";
+import { useConversations } from "../contexts/ConversationsProvider";
 
 export default function Conversations() {
-  const { conversations, selectConversationIndex } = useConversation();
+  const { conversations, selectConversationIndex } = useConversations();
 
   return (
     <ListGroup variant="flush">
