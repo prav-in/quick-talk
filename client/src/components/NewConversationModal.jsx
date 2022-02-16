@@ -22,6 +22,10 @@ export default function NewConversationModal({ closeModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (selectedContactsIds.length === 0) {
+      closeModal();
+      return;
+    }
     createConversation(selectedContactsIds);
     closeModal();
   };

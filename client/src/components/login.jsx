@@ -17,21 +17,44 @@ function Login({ setId }) {
 
   return (
     <Container
-      className="align-items-center d-flex"
+      className="align-items-center justify-content-center flex-column d-flex"
       style={{ height: "100vh" }}
     >
-      <Form onSubmit={handleSubmit} className="w-100">
-        <Form.Group>
-          <Form.Label>Enter Your ID</Form.Label>
-          <Form.Control type="text" ref={idRef} required />
-        </Form.Group>
-        <Button type="submit" className="m-2">
-          Login
-        </Button>
-        <Button onClick={handleGenerate} variant="secondary">
-          Generate ID
-        </Button>
-      </Form>
+      <div>
+        <img
+          style={{ height: "120px" }}
+          src={require("../images/quickTalk.png")}
+          alt=""
+        />
+
+        <h1 className="font-weight-bold mb-5">
+          <span style={{ color: "#ffc40c" }}>Quick</span> Talk
+        </h1>
+      </div>
+      <div
+        className="align-items-center justify-content-center d-flex"
+        style={{
+          width: "500px",
+          height: "300px",
+          boxShadow: "0 0 15px lightgray",
+          background: "#5a95f5",
+        }}
+      >
+        <Form onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Label className="text-white font-weight-bold">
+              Enter Your ID
+            </Form.Label>
+            <Form.Control type="text" ref={idRef} required />
+          </Form.Group>
+          <Button variant="warning" type="submit" className="m-2">
+            Login
+          </Button>
+          <Button onClick={handleGenerate} variant="secondary">
+            Generate ID
+          </Button>
+        </Form>
+      </div>
     </Container>
   );
 }

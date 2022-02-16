@@ -55,6 +55,7 @@ export function ConversationsProvider({ id, children }) {
     [setConversations]
   );
 
+  // Socket
   useEffect(() => {
     if (socket == null) return;
 

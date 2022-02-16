@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { Form, InputGroup, Button } from "react-bootstrap";
 import { useConversations } from "../contexts/ConversationsProvider";
+import { MdBolt } from "react-icons/md";
 
 export default function OpenConversation() {
   const [text, setText] = useState("");
@@ -23,8 +24,18 @@ export default function OpenConversation() {
 
   return (
     <div className="d-flex flex-column flex-grow-1">
+      <div
+        style={{
+          height: "75px",
+          background: "#e5e4e2",
+          fontSize: "1.5rem",
+          padding: "16px",
+        }}
+      >
+        {selectedConversation.recipients.map((r) => r.name).join(", ")}
+      </div>
       <div className="flex-grow-1 overflow-auto">
-        <div className="d-flex flex-column align-items-start justify-content-end px-3">
+        <div className="d-flex flex-column align-items-start justify-content-end p-5">
           {selectedConversation.messages.map((message, index) => {
             const lastMessage =
               selectedConversation.messages.length - 1 === index;
@@ -40,7 +51,7 @@ export default function OpenConversation() {
               >
                 <div
                   className={`rounded px-2 py-1 ${
-                    message.fromMe ? "bg-primary text-white" : "border"
+                    message.fromMe ? "bg-warning text-black" : " border "
                   }`}
                 >
                   {message.text}
@@ -63,12 +74,22 @@ export default function OpenConversation() {
             <Form.Control
               as="textarea"
               required
+              placeholder="Message"
               value={text}
               onChange={(e) => setText(e.target.value)}
-              style={{ height: "75px", resize: "none" }}
+              style={{
+                height: "50px",
+                resize: "none",
+                fontSize: "1.4rem",
+                color: "black",
+              }}
             />
             <InputGroup.Append>
-              <Button type="submit">Send</Button>
+              <Button variant="warning" type="submit">
+                <MdBolt
+                  style={{ color: "black", width: "30px", height: "30px" }}
+                />
+              </Button>
             </InputGroup.Append>
           </InputGroup>
         </Form.Group>
