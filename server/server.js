@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 app.use(cors());
 app.get("/", (req, res) => {
-  res.send("");
+  res.send("...Server Live!!");
 });
 const io = require("socket.io")(server);
 
