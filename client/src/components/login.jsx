@@ -28,16 +28,16 @@ function Login({ setId }) {
         />
 
         <h1 className="font-weight-bold mb-5">
-          <span style={{ color: "#ffc40c" }}>Quick</span> Talk
+          <span style={{ color: "#3a3b9c" }}>Quick</span> Talk
         </h1>
       </div>
       <div
         className="align-items-center justify-content-center d-flex"
         style={{
-          width: "500px",
+          width: "400px",
           height: "300px",
           boxShadow: "0 0 15px lightgray",
-          background: "#5a95f5",
+          background: "#8187dc",
         }}
       >
         <Form onSubmit={handleSubmit}>

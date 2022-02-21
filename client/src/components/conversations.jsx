@@ -1,7 +1,7 @@
 import React from "react";
 import { ListGroup } from "react-bootstrap";
 import { useConversations } from "../contexts/ConversationsProvider";
-
+import "./css/Sidebar.css";
 export default function Conversations() {
   const { conversations, selectConversationIndex } = useConversations();
 
@@ -9,7 +9,7 @@ export default function Conversations() {
     <ListGroup variant="flush">
       {conversations.map((conversation, index) => (
         <ListGroup.Item
-          style={{ height: "60px", fontSize: "18px" }}
+          className="cItems"
           key={index}
           action
           onClick={() => selectConversationIndex(index)}

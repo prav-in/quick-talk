@@ -1,0 +1,11 @@
+:root {
+  --color-from: #e0c3fc;
+  --color-to: #757bc8;
+  --color-primary: #d7e3fc;
+  --color-secondary: #f2ebfb;
+  --color-tertiary: #f2f7ff;
+  --color-border: lightgray;
+  --color-msg-me: #fc4f4f;
+  --color-dropdown: #d90429;
+  --color-welcome: gray;
+}

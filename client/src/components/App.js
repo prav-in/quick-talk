@@ -21,5 +21,4 @@ function App() {
 
   return id ? dashboard : <Login setId={setId} />;
 }
-
 export default App;

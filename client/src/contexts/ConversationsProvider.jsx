@@ -17,7 +17,7 @@ export function ConversationsProvider({ id, children }) {
     "conversations",
     []
   );
-  const [selectedConversationIndex, setSelectedConversationIndex] = useState(0);
+  const [selectedConversationIndex, setSelectedConversationIndex] = useState();
   const { contacts } = useContacts();
   const socket = useSocket();
 

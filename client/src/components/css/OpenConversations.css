@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
+@import "./Constants.css";
+
+.openConv {
+  background: var(--color-tertiary);
+  height: 100%;
+}
+
+.openConv-name {
+  height: 60px;
+  background: var(--color-secondary);
+  color: black;
+  font-size: 1.5rem;
+  padding: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.backbtn {
+  display: none;
+}
+
+.sendBtn {
+  background: var(--color-msg-me) !important;
+  border: none !important;
+}
+
+.sendBtn:hover {
+  background: var(--color-to) !important;
+}
+
+.msg-from-me {
+  background: var(--color-msg-me);
+  color: white;
+}
+.msg-from-next {
+  background: white;
+  color: black;
+  border: 1px solid var(--color-border);
+}
+@media screen and (max-width: 800px) {
+  .backbtn {
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .backbtn:hover {
+    transform: scale(1.2);
+    color: var(--color-dropdown);
+  }
+}

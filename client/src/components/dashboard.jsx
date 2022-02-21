@@ -1,16 +1,21 @@
-import React from "react";
-import { useConversations } from "../contexts/ConversationsProvider";
-import OpenConversation from "./OpenConversation";
-import Sidebar from "./sidebar";
+import React, { useState, useEffect } from "react";
+import DesktopDashboard from "./desktopDashboard";
+import MobileDashboard from "./mobileDashboard";
 
 export default function Dashboard({ id }) {
-  // hooks
-  const { selectedConversation } = useConversations();
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakpoint = 800;
 
-  return (
-    <div className="d-flex" style={{ height: "100vh" }}>
-      <Sidebar id={id} />
-      {selectedConversation && <OpenConversation />}
-    </div>
+  useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
+
+  return width < breakpoint ? (
+    <MobileDashboard id={id} />
+  ) : (
+    <DesktopDashboard id={id} />
   );
 }

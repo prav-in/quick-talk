@@ -12,6 +12,7 @@
     "react-dom": "^16.13.1",
     "react-icons": "^4.3.1",
     "react-scripts": "3.4.3",
+    "react-spring": "^9.4.3",
     "socket.io-client": "^2.3.0",
     "uuid": "^8.3.0"
   },

@@ -1,53 +1,75 @@
 import React, { useState } from "react";
-import { Tab, Nav, Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import Conversations from "./conversations";
 import Contacts from "./contacts";
 import NewContactModal from "./NewContactModal";
 import NewConversationModal from "./NewConversationModal";
-
-//definations
-const CONVERSATIONS_KEY = "conversations";
-const CONTACTS_KEY = "contacts";
+import Dropdown from "./dropdown";
+import { IoChevronBack } from "react-icons/io5";
+import { useTransition, animated } from "react-spring";
+import "./css/Sidebar.css";
 
 //main function
 export default function Sidebar({ id }) {
-  // state stuff
-  const [activeKey, setActiveKey] = useState(CONVERSATIONS_KEY);
+  //  hooks
+
+  const [conversationsOpen, setConversationsOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const conversationsOpen = CONVERSATIONS_KEY === activeKey;
+  const [myContactsOpen, setMyContactsOpen] = useState(false);
+
+  const transition = useTransition(myContactsOpen, {
+    from: {
+      scaleY: 0,
+    },
+    enter: { scaleY: 1 },
+    leave: { scaleY: 0 },
+    duration: 1000,
+  });
 
   //functions
+
   const closeModal = () => {
     setModalOpen(false);
+    setConversationsOpen(false);
   };
 
   //return
   return (
-    <div style={{ width: "400px" }} className="d-flex flex-column">
-      <Tab.Container activeKey={activeKey} onSelect={setActiveKey}>
-        <Nav variant="tabs" className="justify-content-center">
-          <Nav.Item style={{ width: "200px" }}>
-            <Nav.Link eventKey={CONVERSATIONS_KEY}>Conversations</Nav.Link>
-          </Nav.Item>
-          <Nav.Item style={{ width: "200px" }}>
-            <Nav.Link eventKey={CONTACTS_KEY}>Contacts</Nav.Link>
-          </Nav.Item>
-        </Nav>
-        <Tab.Content className="border-right overflow-auto flex-grow-1">
-          <Tab.Pane eventKey={CONVERSATIONS_KEY}>
-            <Conversations />
-          </Tab.Pane>
-          <Tab.Pane eventKey={CONTACTS_KEY}>
-            <Contacts />
-          </Tab.Pane>
-        </Tab.Content>
-        <div className="p-2 border small">
-          Your ID : <span className="text-muted">{id}</span>
-        </div>
-        <Button onClick={() => setModalOpen(true)} className="rounded-0">
-          New {conversationsOpen ? "Conversation" : "Contact"}
-        </Button>
-      </Tab.Container>
+    <div className="sidebar">
+      <div className="conversations-header">
+        <span>{myContactsOpen ? "My Contacts" : "Conversations"}</span>
+
+        {myContactsOpen ? (
+          <IoChevronBack
+            className="dropbtn"
+            onClick={() => setMyContactsOpen(false)}
+          />
+        ) : (
+          <Dropdown
+            setModalOpen={setModalOpen}
+            setMyContactsOpen={setMyContactsOpen}
+            setConversationsOpen={setConversationsOpen}
+          />
+        )}
+      </div>
+
+      <div className="content">
+        {transition((styles, item) => {
+          return item ? (
+            <animated.div style={styles} className="animated">
+              <Contacts />
+            </animated.div>
+          ) : (
+            <animated.div style={styles} className="animated">
+              <Conversations />
+            </animated.div>
+          );
+        })}
+      </div>
+      <div className="yourId">
+        Your ID : <span className="text-muted">{id}</span>
+      </div>
+
       <Modal show={modalOpen} onHide={closeModal}>
         {conversationsOpen ? (
           <NewConversationModal closeModal={closeModal} />

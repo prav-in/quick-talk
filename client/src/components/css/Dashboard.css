@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(
+    to bottom right,
+    var(--color-from),
+    var(--color-to)
+  );
+  align-items: center;
+  justify-content: center;
+}
+
+@import "./Constants.css";
+
+.dashboard {
+  height: 95vh;
+  width: 90vw;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.7);
+}
+.blank-div {
+  background: white;
+  height: 100%;
+  width: 70%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.moto {
+  color: var(--color-welcome);
+}

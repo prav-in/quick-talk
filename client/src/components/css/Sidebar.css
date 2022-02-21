@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa&family=Signika+Negative&family=Kanit&family=Exo+2&display=swap");
+
+@import "./Constants.css";
+
+.sidebar {
+  background: white;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.conversations-header {
+  height: 60px;
+  background: var(--color-primary);
+  font-size: 1.5rem;
+  padding: 16px;
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  color: black;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Exo 2", sans-serif;
+}
+
+.content {
+  height: 100%;
+  background: var(--color-secondary);
+  border-right: 1px solid lightgray;
+  font-family: "Signika Negative", sans-serif;
+}
+
+.yourId {
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  font-family: "Changa", sans-serif;
+  font-size: 1.1rem;
+}
+
+.animated {
+  position: absolute;
+  width: 26.9%;
+  transform-origin: top;
+}
+
+.cItems {
+  height: auto;
+  font-size: 1.3rem;
+  z-index: 0 !important;
+  outline: none;
+  border: none;
+}
+
+.cItems:hover {
+  background: var(--color-secondary) !important;
+  color: black !important;
+}
+
+.cItems:focus {
+  outline: none;
+}
+
+.list-group-item.active {
+  border-color: none;
+  background-color: white !important;
+  color: black !important;
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    width: 100vh;
+    height: 100vh;
+  }
+
+  .animated {
+    width: 100%;
+  }
+}
