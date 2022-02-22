@@ -49,7 +49,6 @@
   font-size: 1.3rem;
   z-index: 0 !important;
   outline: none;
-  border: none;
 }
 
 .cItems:hover {
@@ -62,7 +61,6 @@
 }
 
 .list-group-item.active {
-  border-color: none;
   background-color: white !important;
   color: black !important;
 }
